@@ -1,6 +1,71 @@
-// ignore_for_file: sort_child_properties_last
-
 import 'package:flutter/material.dart';
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xFF247BA0),
+      appBar: AppBar(
+        backgroundColor: Color(0xFF13293D),
+        title: Text(
+          'Sinal verde',
+          style: TextStyle(
+            fontFamily: 'Outfit',
+            color: Colors.white,
+            fontSize: 22,
+          ),
+        ),
+        centerTitle: false,
+        elevation: 2,
+      ),
+      body: SafeArea(
+        top: true,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: 250,
+                height: 250,
+                decoration: BoxDecoration(
+                  color: Colors.red, // Cor da bola vermelha
+                  shape: BoxShape.circle,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Parar',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontFamily: 'verdana', // Cor do texto
+                ),
+              ),
+              SizedBox(height: 40),
+              Container(
+                width: 250,
+                height: 250,
+                decoration: BoxDecoration(
+                  color: Colors.green, // Cor da bola verde
+                  shape: BoxShape.circle,
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'Avançar',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white, // Cor do texto
+                  fontFamily: 'verdana',
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class HomePageWidget extends StatelessWidget {
   const HomePageWidget({Key? key}) : super(key: key);
@@ -10,9 +75,9 @@ class HomePageWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Colors.grey[200],
+        backgroundColor: Color(0xFF247BA0),
         appBar: AppBar(
-          backgroundColor: Color(0xFF13293D), // Cor do menu
+          backgroundColor: Color(0xFF13293D),
           automaticallyImplyLeading: false,
           title: Text(
             'Sinal verde',
@@ -22,7 +87,6 @@ class HomePageWidget extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          actions: [],
           centerTitle: false,
           elevation: 2,
         ),
@@ -36,15 +100,18 @@ class HomePageWidget extends StatelessWidget {
             ),
             child: ElevatedButton(
               onPressed: () {
-                print('Button pressed ...');
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SecondPage()),
+                );
               },
               child: Image.asset(
-                'assets/microfone.png', 
+                'assets/microfone.png',
                 height: 400,
-                width: 200, 
+                width: 200,
               ),
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF247BA0), // Cor do botão
+                primary: Color(0xFF247BA0),
                 elevation: 3,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),

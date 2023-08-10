@@ -88,7 +88,7 @@ class HomePageWidget extends StatelessWidget {
             ),
           ),
           centerTitle: false,
-          elevation: 0, // Removido a sombra
+          elevation: 0, // Removido a sombr
         ),
         body: SafeArea(
           top: true,

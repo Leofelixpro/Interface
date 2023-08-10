@@ -4,10 +4,10 @@ class SecondPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF247BA0),
+      backgroundColor: const Color(0xFF247BA0),
       appBar: AppBar(
-        backgroundColor: Color(0xFF13293D),
-        title: Text(
+        backgroundColor: const Color(0xFF13293D),
+        title: const Text(
           'Sinal verde',
           style: TextStyle(
             fontFamily: 'Outfit',
@@ -16,7 +16,7 @@ class SecondPage extends StatelessWidget {
           ),
         ),
         centerTitle: false,
-        elevation: 2,
+        elevation: 0, // Removido a sombra
       ),
       body: SafeArea(
         top: true,
@@ -28,34 +28,34 @@ class SecondPage extends StatelessWidget {
                 width: 250,
                 height: 250,
                 decoration: BoxDecoration(
-                  color: Colors.red, // Cor da bola vermelha
+                  color: Colors.red,
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Parar',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30,
                   color: Colors.white,
-                  fontFamily: 'verdana', // Cor do texto
+                  fontFamily: 'verdana',
                 ),
               ),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Container(
                 width: 250,
                 height: 250,
                 decoration: BoxDecoration(
-                  color: Colors.green, // Cor da bola verde
+                  color: Colors.green,
                   shape: BoxShape.circle,
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Text(
                 'Avançar',
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 30,
-                  color: Colors.white, // Cor do texto
+                  color: Colors.white,
                   fontFamily: 'verdana',
                 ),
               ),
@@ -75,11 +75,11 @@ class HomePageWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        backgroundColor: Color(0xFF247BA0),
+        backgroundColor: const Color(0xFF247BA0),
         appBar: AppBar(
-          backgroundColor: Color(0xFF13293D),
+          backgroundColor: const Color(0xFF13293D),
           automaticallyImplyLeading: false,
-          title: Text(
+          title: const Text(
             'Sinal verde',
             style: TextStyle(
               fontFamily: 'Outfit',
@@ -88,16 +88,11 @@ class HomePageWidget extends StatelessWidget {
             ),
           ),
           centerTitle: false,
-          elevation: 2,
+          elevation: 0, // Removido a sombra
         ),
         body: SafeArea(
           top: true,
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
+          child: Center(
             child: ElevatedButton(
               onPressed: () {
                 Navigator.push(
@@ -105,13 +100,13 @@ class HomePageWidget extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SecondPage()),
                 );
               },
-              child: Image.asset(
-                'assets/microfone.png',
-                height: 400,
-                width: 200,
+              child: SizedBox(
+                height: 1800,
+                width: 2000,
+                child: Image.asset('assets/microfone.png'),
               ),
               style: ElevatedButton.styleFrom(
-                primary: Color(0xFF247BA0),
+                primary: const Color(0xFF247BA0),
                 elevation: 3,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),
@@ -126,5 +121,5 @@ class HomePageWidget extends StatelessWidget {
 }
 
 void main() {
-  runApp(MaterialApp(home: HomePageWidget()));
+  runApp(MaterialApp(home: const HomePageWidget()));
 }
